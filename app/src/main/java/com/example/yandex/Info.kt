@@ -38,6 +38,7 @@ class Info : AppCompatActivity() {
         else
             likeInfo.setImageResource(R.drawable.ic_favourite)
 
+        //кнопка стрелки "назад" работает, но из-за неисправности svg её не видно
         finish2.setOnClickListener {
             finish()
         }
