@@ -7,30 +7,34 @@
     android:orientation="horizontal">
 
     <RelativeLayout
+        android:id="@+id/forInfo"
         android:layout_width="match_parent"
         android:layout_height="80dp">
 
-
-        <!--            <ImageButton-->
-        <!--                android:id="@+id/imageButtonLike"-->
-        <!--                android:layout_width="16dp"-->
-        <!--                android:layout_height="16dp"-->
-        <!--                android:layout_alignParentTop="true"-->
-        <!--                android:layout_marginStart="6dp"-->
-        <!--                android:layout_marginTop="10dp"-->
-        <!--                android:layout_toEndOf="@+id/item_ticker"-->
-        <!--                android:src="@drawable/ic_favourite" />-->
+        <ImageButton
+            android:id="@+id/like"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/ticker"
+            android:background="#FFFFFF"
+            android:src="@drawable/ic_favourite" />
 
         <androidx.cardview.widget.CardView
+
+
             android:id="@+id/image_logo"
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="21dp"
+            android:layout_marginStart="20dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="10dp"
-            card_view:cardCornerRadius="13dp">
+            card_view:cardCornerRadius="25sp">
+
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/logo"
@@ -44,35 +48,40 @@
         <TextView
             android:id="@+id/ticker"
             android:layout_width="wrap_content"
-            android:layout_height="18dp"
+            android:layout_height="28dp"
             android:layout_alignParentTop="true"
             android:layout_marginStart="12dp"
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@+id/image_logo"
             android:text="ticker"
+            android:textColor="#000000"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
-            android:layout_below="@+id/ticker"
+            android:layout_alignBottom="@+id/image_logo"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginBottom="0dp"
             android:layout_toEndOf="@+id/image_logo"
             android:text="name"
+            android:textColor="#696969"
             android:textSize="12sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/sum"
             android:layout_width="wrap_content"
-            android:layout_height="18dp"
+            android:layout_height="28dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="30dp"
             android:text="sum"
+            android:textColor="#000000"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
@@ -84,6 +93,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="0dp"
             android:text="percent"
+            android:textColor="#696969"
             android:textSize="12sp"
             android:textStyle="bold" />
 

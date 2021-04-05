@@ -13,12 +13,13 @@ public class Stock {
     private String percent;
     private String sum;
     private String pc;
+    private boolean like;
 
     public Stock() {
     }
 
     public Stock(String name, String currency, String exchange, String ipo, String ticker, String weburl,
-                 String logo, String finnhubIndustry, String country, Double percent, Double sum, Double pc) {
+                 String logo, String finnhubIndustry, String country, Double percent, Double sum, Double pc, boolean like) {
         this.name = name;
         this.currency = currency;
         this.exchange = exchange;
@@ -31,6 +32,7 @@ public class Stock {
         this.percent = String.format("%.2f", percent);
         this.sum = String.format("%.2f", sum);
         this.pc = String.format("%.2f", pc);
+        this.like = like;
     }
 
     public String getName() {
@@ -117,7 +119,7 @@ public class Stock {
         return sum;
     }
 
-    public void setC(String percent) {
+    public void setSum(String percent) {
         this.sum = sum;
     }
 
@@ -127,6 +129,14 @@ public class Stock {
 
     public void setPc(String pc) {
         this.pc = pc;
+    }
+
+    public boolean isLike() {
+        return like;
+    }
+
+    public void setLike(boolean like) {
+        this.like = like;
     }
 
 
