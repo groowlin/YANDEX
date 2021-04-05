@@ -109,7 +109,7 @@ class StocksFragment : Fragment() {
                 }
             }
 
-            adapterForSearch = MystocksRecyclerViewAdapter(stocks, context)
+            adapterForSearch = MystocksRecyclerViewAdapter(stocks, context, true)
             recyclerView.adapter = adapterForSearch
         }
     }
@@ -142,7 +142,7 @@ class StocksFragment : Fragment() {
 
             Log.w("PREFERENCE", stocks.toString())
 
-            adapterForSearch = MystocksRecyclerViewAdapter(stocks, context!!)
+            adapterForSearch = MystocksRecyclerViewAdapter(stocks, context!!, false)
             recyclerView.adapter = adapterForSearch
 
         } catch (e:Exception) {
@@ -180,12 +180,12 @@ class StocksFragment : Fragment() {
                 toast.show()
             }
 
-            adapterForSearch = MystocksRecyclerViewAdapter(stocksFav,context!!)
+            adapterForSearch = MystocksRecyclerViewAdapter(stocksFav,context!!,true)
             recycler.adapter = adapterForSearch
         }
 
         if(buttonIndex==0){
-            adapterForSearch = MystocksRecyclerViewAdapter(stocks,context!!)
+            adapterForSearch = MystocksRecyclerViewAdapter(stocks,context!!,  true)
             recycler.adapter = adapterForSearch
         }
     }

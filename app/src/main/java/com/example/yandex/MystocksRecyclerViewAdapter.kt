@@ -17,8 +17,8 @@ import java.util.*
 class MystocksRecyclerViewAdapter(
 
     private val mValues: List<Stock>,
-    private val context: Context
-
+    private val context: Context,
+    private val touchDown: Boolean
 
 ) : RecyclerView.Adapter<MystocksRecyclerViewAdapter.ViewHolder>(), Filterable {
 
@@ -126,10 +126,13 @@ class MystocksRecyclerViewAdapter(
 
         jsonToPref(item)
 
-        holder.info.setOnClickListener {
-            val intent = Intent(context, Info::class.java)
-//            intent.putExtra("jsonFile", getJsonFromPref(item.ticker, mPrefs))
-            context.startActivity(intent)
+        if(touchDown){
+            holder.info.setOnClickListener {
+                val sharedPreference2 =  context.getSharedPreferences("PREFERENCE_ALL",Context.MODE_PRIVATE)
+                val intent = Intent(context, Info::class.java)
+                intent.putExtra("jsonFile", getJsonFromPref(item.ticker,sharedPreference2))
+                context.startActivity(intent)
+            }
         }
     }
 
@@ -145,6 +148,10 @@ class MystocksRecyclerViewAdapter(
         prefsEditor.commit()
     }
 
+    fun getJsonFromPref(name: String, mPrefs: SharedPreferences): String{
+        val json = mPrefs.getString(name, "")
+        return json!!
+    }
 
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
@@ -155,7 +162,6 @@ class MystocksRecyclerViewAdapter(
         val sum: TextView = mView.findViewById(R.id.sum)
         val percent: TextView = mView.findViewById(R.id.percent)
         val sharedPreference =  context.getSharedPreferences("PREFERENCE_FAVOURITE",Context.MODE_PRIVATE)
-        val sharedPreference2 =  context.getSharedPreferences("PREFERENCE_ALL",Context.MODE_PRIVATE)
         var editor = sharedPreference.edit()
         val imageButtonLike: ImageButton = mView.findViewById(R.id.like)
         val info:RelativeLayout = mView.findViewById(R.id.forInfo)
